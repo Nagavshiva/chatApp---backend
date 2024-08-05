@@ -11,7 +11,7 @@ import {app , server} from './Socket/socket.js'
 
 const __dirname = path.resolve();
 
-dbConnect();
+
 
 
 app.use(express.json());
@@ -31,5 +31,6 @@ app.get("*",(req,res)=>{
 const PORT = process.env.PORT || 5000;
 
 server.listen(PORT,()=>{
+    dbConnect();
     console.log(`Working at ${PORT}`);
 })
