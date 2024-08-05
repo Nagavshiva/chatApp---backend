@@ -15,7 +15,8 @@ dbConnect();
 
 
 app.use(express.json());
-app.use(cookieParser())
+app.use(cookieParser());
+app.use(cors());
 
 app.use('/api/auth',authRouter)
 app.use('/api/message',messageRouter)
@@ -30,6 +31,5 @@ app.get("*",(req,res)=>{
 const PORT = process.env.PORT || 5000;
 
 server.listen(PORT,()=>{
-    dbConnect();
     console.log(`Working at ${PORT}`);
 })
